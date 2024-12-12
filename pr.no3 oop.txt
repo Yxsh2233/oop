@@ -1,0 +1,38 @@
+   class Complex {
+    double real, imaginary;
+
+    Complex() {
+        real = 0;
+        imaginary = 0;
+    }
+
+    Complex(double real, double imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+    Complex divide(Complex other) {
+        
+        double denominator = other.real * other.real + other.imaginary * other.imaginary;
+        double newReal = (this.real * other.real + this.imaginary * other.imaginary) / denominator;
+        double newImaginary = (this.imaginary * other.real - this.real * other.imaginary) / denominator;
+        
+        return new Complex(newReal, newImaginary);
+    }
+
+    void display() {
+        System.out.println(real + " + " + imaginary + "i");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Complex c1 = new Complex(4, 2);
+        Complex c2 = new Complex(2, 3);  
+
+        Complex result = c1.divide(c2);
+
+        System.out.print("Result of division: ");
+        result.display();
+    }
+}
