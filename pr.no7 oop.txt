@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+// Abstract base class
+abstract class Shape {
+    double dim1, dim2;
+
+    // Method to input dimensions
+    void inputDimensions(double d1, double d2) {
+        dim1 = d1;
+        dim2 = d2;
+    }
+
+    // Abstract method to calculate area
+    abstract double compute_area();
+}
+
+// Derived class for Triangle
+class Triangle extends Shape {
+    @Override
+    double compute_area() {
+        return 0.5 * dim1 * dim2; // Area of triangle = 0.5 * base * height
+    }
+}
+
+// Derived class for Rectangle
+class Rectangle extends Shape {
+    @Override
+    double compute_area() {
+        return dim1 * dim2; // Area of rectangle = length * width
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input choice for shape
+        System.out.println("Enter shape type (1 for Triangle, 2 for Rectangle): ");
+        int choice = sc.nextInt();
+
+        Shape shape;
+        if (choice == 1) {
+            shape = new Triangle();
+            System.out.println("Enter base and height of Triangle: ");
+            double base = sc.nextDouble();
+            double height = sc.nextDouble();
+            shape.inputDimensions(base, height);
+        } else {
+            shape = new Rectangle();
+            System.out.println("Enter length and width of Rectangle: ");
+            double length = sc.nextDouble();
+            double width = sc.nextDouble();
+            shape.inputDimensions(length, width);
+        }
+
+        // Display the calculated area
+        System.out.println("Area of the shape: " + shape.compute_area());
+    }
+}
