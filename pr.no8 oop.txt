@@ -1,0 +1,83 @@
+// Interface for Vehicle
+interface Vehicle {
+    void gearChange();
+    void speedUp();
+    void applyBrakes();
+}
+
+// Bicycle class implementing Vehicle interface
+class Bicycle implements Vehicle {
+    @Override
+    public void gearChange() {
+        System.out.println("Bicycle gear shifted.");
+    }
+
+    @Override
+    public void speedUp() {
+        System.out.println("Bicycle speed increased.");
+    }
+
+    @Override
+    public void applyBrakes() {
+        System.out.println("Bicycle brakes applied.");
+    }
+}
+
+// Bike class implementing Vehicle interface
+class Bike implements Vehicle {
+    @Override
+    public void gearChange() {
+        System.out.println("Bike gear changed.");
+    }
+
+    @Override
+    public void speedUp() {
+        System.out.println("Bike speed increased.");
+    }
+
+    @Override
+    public void applyBrakes() {
+        System.out.println("Bike brakes applied.");
+    }
+}
+
+// Car class implementing Vehicle interface
+class Car implements Vehicle {
+    @Override
+    public void gearChange() {
+        System.out.println("Car gear shifted.");
+    }
+
+    @Override
+    public void speedUp() {
+        System.out.println("Car speed increased.");
+    }
+
+    @Override
+    public void applyBrakes() {
+        System.out.println("Car brakes applied.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle bicycle = new Bicycle();
+        Vehicle bike = new Bike();
+        Vehicle car = new Car();
+
+        System.out.println("Bicycle Actions:");
+        bicycle.gearChange();
+        bicycle.speedUp();
+        bicycle.applyBrakes();
+
+        System.out.println("\nBike Actions:");
+        bike.gearChange();
+        bike.speedUp();
+        bike.applyBrakes();
+
+        System.out.println("\nCar Actions:");
+        car.gearChange();
+        car.speedUp();
+        car.applyBrakes();
+    }
+}
